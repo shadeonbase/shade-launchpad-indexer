@@ -1,0 +1,15 @@
+[package]
+name = "shade-indexer-bytecode"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+description = "Bloom-filter index of malicious 4-byte selectors and runtime-bytecode pattern flags."
+
+[dependencies]
+serde = { workspace = true }
+serde_json = { workspace = true }
+thiserror = { workspace = true }
+hex = { workspace = true }
+blake2 = "0.10"

@@ -1,0 +1,19 @@
+[package]
+name = "shade-indexer-kafka"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+repository.workspace = true
+authors.workspace = true
+description = "Kafka producer for normalized launchpad deploy events."
+
+[dependencies]
+shade-indexer-core = { path = "../shade-indexer-core" }
+tokio = { workspace = true }
+rdkafka = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+tracing = { workspace = true }
+metrics = { workspace = true }
