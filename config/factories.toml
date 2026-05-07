@@ -1,0 +1,24 @@
+# Launchpad factory registry — verified addresses must be checked against
+# launchpad documentation before mainnet use. Topics below are placeholders
+# (32 bytes of 0x11/0x22/...) until canonical events are wired up. Replace
+# with the actual `keccak256("EventName(arg,arg,...)")` for each event.
+
+[clanker]
+address     = "0x9b84fcE5Dcd9a38d2D01d5D72373F6b6b067c3e1"
+event_topic = "0x1111111111111111111111111111111111111111111111111111111111111111"
+abi_path    = "abi/clanker_factory.json"
+
+[flaunch]
+address     = "0x0000000000000000000000000000000000000000"
+event_topic = "0x2222222222222222222222222222222222222222222222222222222222222222"
+abi_path    = "abi/flaunch_factory.json"
+
+[bankr]
+address     = "0x0000000000000000000000000000000000000000"
+event_topic = "0x3333333333333333333333333333333333333333333333333333333333333333"
+abi_path    = "abi/bankr_factory.json"
+
+[zora]
+address     = "0x777777C338d93e2C7adf08D102d45CA7CC4Ed021"
+event_topic = "0x4444444444444444444444444444444444444444444444444444444444444444"
+abi_path    = "abi/zora_factory.json"

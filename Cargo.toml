@@ -1,0 +1,67 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/shade-indexer-core",
+    "crates/shade-indexer-kafka",
+    "crates/shade-indexer-enrich",
+    "crates/shade-indexer-bytecode",
+    "crates/shade-indexer-bin",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.90"
+license = "Apache-2.0"
+repository = "https://github.com/shadeonbase/shade-launchpad-indexer"
+authors = ["The SHADE Project <dev@shadeonbase.com>"]
+
+[workspace.dependencies]
+# async / runtime
+tokio = { version = "1.41", features = ["full"] }
+tokio-stream = "0.1"
+futures-util = "0.3"
+async-trait = "0.1"
+
+# alloy (ethereum)
+alloy = { version = "0.8", features = ["full", "provider-ws", "rpc-types-eth", "pubsub", "signers", "json-rpc"] }
+alloy-primitives = "0.8"
+alloy-sol-types = "0.8"
+
+# serde / config
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+toml = "0.8"
+
+# error / logging
+anyhow = "1"
+thiserror = "2"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter", "json"] }
+
+# kafka
+rdkafka = { version = "0.37", default-features = false, features = ["tokio"] }
+
+# postgres
+sqlx = { version = "0.8", features = ["runtime-tokio-rustls", "postgres", "macros", "chrono", "bigdecimal"] }
+chrono = { version = "0.4", features = ["serde"] }
+
+# misc
+hex = "0.4"
+config = { version = "0.14", features = ["toml"] }
+metrics = "0.24"
+metrics-exporter-prometheus = "0.16"
+once_cell = "1"
+
+# cli + http
+clap = { version = "4.5", features = ["derive", "env"] }
+axum = "0.7"
+tower-http = { version = "0.6", features = ["trace"] }
+arc-swap = "1.7"
+url = "2"
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
+strip = "symbols"
+panic = "abort"
